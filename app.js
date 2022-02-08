@@ -4,6 +4,7 @@ const colors =document.getElementsByClassName("jsColor");
 const range =document.getElementById("jsRange");
 const mode =document.getElementById("jsMode");
 const saveBtn =document.getElementById("jsSave");
+const clear =document.getElementById("jsClear");
 
 const INITIAL_COLOR="#2c2c2c";
 const CANVAS_SIZE=700;
@@ -63,6 +64,11 @@ function handleModeClick(){
     }
 }
 
+function handleClearClick(){
+    ctx.fillStyle="white";
+    ctx.fillRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
+}
+
 function handleCanvasClick(){
     if(filling){
         ctx.fillRect(0,0,CANVAS_SIZE,CANVAS_SIZE);
@@ -107,4 +113,8 @@ if(mode){
 if (saveBtn) {
     saveBtn.addEventListener("click", handleSaveClick);
   }
+
+if(clear){
+    clear.addEventListener("click",handleClearClick);
+}
   
